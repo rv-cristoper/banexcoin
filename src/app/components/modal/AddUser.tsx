@@ -1,6 +1,8 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react'
+import React, { FormEvent, useState } from 'react'
 
 import { IUser } from './Types/user'
+
+type ChangeEvent = React.ChangeEvent<HTMLInputElement>
 
 interface Props {
     setAddUserModal: React.Dispatch<React.SetStateAction<boolean>>,
@@ -31,12 +33,31 @@ const AddUser = ({ setAddUserModal, addUSer }: Props): JSX.Element => {
         return fecha + ' ' + hora;
     }
 
-    const onChangeInputs = (e: ChangeEvent<HTMLInputElement>) => {
+    const getBirthdate = (value: string): string => {
+        const date = new Date(value)
+        const month = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+        const day = date.getDate() + 1
+        const nMonth = date.getMonth()
+        return day + ' de ' + month[Number(nMonth)];
+    }
+
+    const onChangeInputs = (e: ChangeEvent, number?: boolean) => {
         const { name, value } = e.target
-        setData({
-            ...data,
-            [name]: value
-        })
+        if (number) {
+            const re = /^[0-9.\b]+$/
+            if (value === '' || re.test(value)) {
+                setData({
+                    ...data,
+                    [name]: value
+                })
+            }
+        } else {
+            setData({
+                ...data,
+                [name]: value
+            })
+        }
+
     };
 
     const handleSubmitAdd = (e: FormEvent) => {
@@ -44,7 +65,8 @@ const AddUser = ({ setAddUserModal, addUSer }: Props): JSX.Element => {
         const newData = {
             ...data,
             id: Math.random().toString(36).substr(2, 9),
-            created: getDate()
+            created: getDate(),
+            birthdate: getBirthdate(data.birthdate)
         }
         addUSer(newData)
     }
@@ -64,7 +86,7 @@ const AddUser = ({ setAddUserModal, addUSer }: Props): JSX.Element => {
                 </label>
                 <label>
                     <p>Teléfono:</p>
-                    <input name="phone" type="text" value={phone} onChange={onChangeInputs} required autoComplete="off" />
+                    <input name="phone" type="text" value={phone} onChange={(e: ChangeEvent) => onChangeInputs(e, true)} required autoComplete="off" />
                 </label>
                 <label>
                     <p>Código postal:</p>

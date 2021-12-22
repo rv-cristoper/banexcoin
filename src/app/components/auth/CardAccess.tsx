@@ -39,7 +39,6 @@ const CardAccess = (): JSX.Element => {
             Notification(type.danger, "Usuario o contraseña incorrecto!")
             setLoading(false)
         }
-        console.log(user)
     }
 
     const { username, password }: IUser = user;

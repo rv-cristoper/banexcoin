@@ -22,11 +22,10 @@ const UserPage = (): JSX.Element => {
         fname: 'Cristoper Jhanfranco',
         lname: 'Runco Contreras',
         address: 'Lima, Lima - San Juan de Lurigancho',
-        birthdate: '01-12'
+        birthdate: '01 de Diciembre'
     }])
 
     const addUSer = (data: IUser): void => {
-        console.log(data)
         const cloneListUser = listUser
         cloneListUser.push(data)
         setListUser(cloneListUser)
