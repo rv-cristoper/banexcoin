@@ -69,12 +69,6 @@
                         box-sizing: border-box;
                         font-family: "Roboto";
                         font-size: 13px;
-                        &::-ms-reveal {
-                            display: none;
-                        }
-                    }
-                    .inpPass {
-                        padding-right: 3rem;
                     }
                     i {
                         color: #888787;

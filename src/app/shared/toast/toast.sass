@@ -1,0 +1,84 @@
+.dashboard_toast
+    &--box
+
+        position: fixed
+        bottom: 0
+        right: 0
+        z-index: 99999
+        right: -100%
+        opacity: 1
+        visibility: visible
+
+        animation: 7s anim-toast-default
+        transition: all .25s  ease-in-out
+        animation-fill-mode: forwards
+        
+        &.toast-with-animation
+            animation: 7s anim-toast-auto-hidden
+        
+    &--wrap
+        display: grid
+        color: #fff
+        grid-template-columns: max-content auto
+        grid-column-gap: 10px
+        position: absolute
+        align-items: center
+        flex-direction: row
+        min-width: 350px
+        overflow: hidden
+        box-shadow: 6px 6px 12px 0 rgba(0, 0, 0, 0.2), -6px -6px 12px 0 rgba(255, 255, 255, 0.5)
+        border-radius: 4px
+        padding: 10px
+        max-width: 500px
+        bottom: 30px
+        right: 5px
+        &.success
+            background: #27CD41
+        &.danger
+            background: #FF3B2F
+        &.warning
+            background: #FFCC02
+        .iconInfoAlert
+            font-size: 20px
+        .msmInfoAlert
+            margin: 0
+            font-size: 15px
+
+
+
+@keyframes anim-toast-default
+    10%
+        right: 5px
+        visibility: visible
+        opacity: 1
+    90%
+        visibility: visible
+        opacity: 1
+        right: 5px
+    98%
+        right: -100%
+    100%
+        visibility: visible
+        opacity: 1
+        right: 5px
+
+@keyframes anim-toast-auto-hidden
+    10%
+        right: 5px
+        visibility: visible
+        opacity: 1
+    90%
+        visibility: visible
+        opacity: 1
+        right: 5px
+    98%
+        right: -100%
+    100%
+        visibility: hidden
+        opacity: 0
+        right: -100%
+
+@media screen and (max-width: 768px)
+    .dashboard_toast
+        &--wrap
+            min-width: 300px

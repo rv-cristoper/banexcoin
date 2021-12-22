@@ -1,0 +1,38 @@
+.userItem {
+    border: 1px solid #b7b7b7;
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    font-weight: 700;
+    font-family: "Roboto";
+    // width: 100%;
+    max-width: 700px;
+    .Inactivo {
+        color: red;
+        font-weight: 900;
+        font-size: 20px;
+    }
+    .Activo {
+        color: #27cd41;
+        font-weight: 900;
+        font-size: 20px;
+    }
+    .sepinf {
+        display: flex;
+        width: 100%;
+        > div {
+            width: 50%;
+        }
+    }
+    span {
+        font-weight: normal;
+    }
+    button {
+        color: #27cd41;
+        border: none;
+        background-color: inherit;
+        cursor: pointer;
+    }
+}

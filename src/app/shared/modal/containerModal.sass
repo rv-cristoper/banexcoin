@@ -1,0 +1,146 @@
+#root-portal
+    background: rgba(20,22,24,0.75)
+    position: fixed
+    height: 100vh
+    width: 100vw
+    top: 0
+    display: table
+    z-index: 10
+    animation: showModal 0.4s
+    .contentModal
+        display: table-cell
+        vertical-align: middle
+        text-align: center
+        .main_modal
+            max-width: 488px
+            width: 100%
+            display: inline-block
+            padding: 10px
+            .headModal
+                background: #ff8e0a
+                color: #fff
+                display: flex
+                padding: 16px
+                border-top-left-radius: 15px
+                border-top-right-radius: 15px
+                position: relative
+                justify-content: center
+                h3
+                    margin: 0
+                    font-size: 20px
+                span
+                    font-weight: 500
+                    font-size: 35px
+                    position: absolute
+                    right: 20px
+                    top: 4px
+                    cursor: pointer
+            .bodyModals
+                background: #fff
+                border-bottom-left-radius: 15px
+                border-bottom-right-radius: 15px
+                padding: 22px
+                display: grid
+                grid-row-gap: 15px
+                >div, form
+                    display: grid
+                    grid-auto-flow: row
+                    grid-row-gap: 15px
+                    font-size: 14px
+                    >p
+                        &:first-child
+                            font-size: 16px
+                            font-weight: 500
+                    >div
+                        &:first-child
+                            display: grid
+                            grid-auto-flow: row
+                            grid-row-gap: 15px
+                            text-align: left
+                            font-size: 14px
+                            height: auto
+                            max-height: 400px
+                            overflow-y: auto
+                            padding-bottom: 1px
+                            &::-webkit-scrollbar
+                                -webkit-appearance: none
+                            &::-webkit-scrollbar:vertical
+                                width: 20px
+                            &::-webkit-scrollbar:horizontal
+                                height: 10px
+                            &::-webkit-scrollbar-track
+                                border-radius: 10px
+                                -webkit-box-shadow: none
+                            &::-webkit-scrollbar-thumb
+                                background-color: #50505038
+                                border-radius: 0
+                                border-left: 10px solid rgba(0, 0, 0, 0)
+                                background-clip: padding-box
+                                &:hover
+                                    background-color: #50505094
+                                &:active
+                                    background-color: #ff8e0a
+                            >div
+                                display: grid
+                                grid-template-columns: repeat(2, 1fr)
+                                grid-gap: 16px
+                            label
+                                width: 100%
+                                p
+                                    margin-bottom: 5px
+                                    font-weight: 700
+                                input, select, textarea
+                                    border: 1px solid #D8CCCC
+                                    box-sizing: border-box
+                                    border-radius: 10px
+                                    padding: 0.5rem
+                                    width: 100%
+                                    outline: none
+                                    background-color: #ffffff
+                                    &:focus
+                                        border-color: #ff8e0a
+                                textarea
+                                    height: 80px
+                                    resize: none
+                                input[disabled]
+                                    cursor: default !important
+                                    opacity: 0.9 !important
+
+                        &:last-child
+                            display: grid
+                            grid-template-columns: 100px 100px
+                            justify-content: right
+                            grid-column-gap: 10px
+                            button
+                                padding: 0.5rem
+                                border-radius: 10px
+                                border: 1px solid #ff8e0a
+                                color: #ff8e0a
+                                cursor: pointer
+                                background-color: #fff
+                                &:last-child
+                                    border: none
+                                    color: #fff
+                                    background-color: #ff8e0a
+                                    &:hover
+                                        opacity: 0.8
+                >div
+                    >div:last-child
+                        justify-content: center
+
+@keyframes showModal
+    0%
+        opacity: 0
+    100%
+        opacity: 1
+
+@media screen and (max-width: 488px)
+    #root-portal
+        .contentModal
+            .main_modal
+                .bodyModals
+                    >div, form
+                        >div
+                            &:first-child
+                                >div
+                                    grid-template-columns: none

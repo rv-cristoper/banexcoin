@@ -1,9 +1,9 @@
 import React, { useEffect }from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { useNavigate, } from 'react-router-dom';
-import Dashboard from '../app/pages/Dashboard'
-import Loggin from '../app/pages/Loggin'
 import Layout from '../app/components/layout/Layout'
+import UserPage from '../app/pages/UserPage';
+import CommingSoon from '../app/components/notices/CommingSoon';
 
 const MainRouter = (): JSX.Element => {
 
@@ -17,8 +17,8 @@ const MainRouter = (): JSX.Element => {
     return (
         <Layout>
             <Routes>
-                <Route path="users" element={<Dashboard />} />
-                <Route path="clients" element={<Loggin />} />
+                <Route path="users" element={<UserPage />} />
+                <Route path="clients" element={<CommingSoon />} />
                 <Route path='*' element={<Navigate to="users" />} />
             </Routes>
         </Layout>

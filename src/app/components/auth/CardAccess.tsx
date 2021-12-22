@@ -1,4 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import Notification, { type } from '../../shared/toast/Toast'
 import './scss/cardAccess.scss'
 
 interface IUser {
@@ -7,6 +9,8 @@ interface IUser {
 }
 
 const CardAccess = (): JSX.Element => {
+
+    const navigate = useNavigate();
 
     const [user, setUser] = useState<IUser>({
         username: '',
@@ -26,6 +30,15 @@ const CardAccess = (): JSX.Element => {
     const onSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setLoading(true)
+        if (user.username === 'admin' && user.password === '123456') {
+            Notification(type.success, "Logueado correctamente!")
+            setLoading(false)
+            navigate('/users')
+        }
+        else {
+            Notification(type.danger, "Usuario o contraseña incorrecto!")
+            setLoading(false)
+        }
         console.log(user)
     }
 
@@ -49,7 +62,7 @@ const CardAccess = (): JSX.Element => {
                         <label htmlFor="accessUser">
                             <input
                                 id="accessUser"
-                                type="email"
+                                type="string"
                                 name='username'
                                 placeholder="Ingrese su usuario"
                                 value={username}
