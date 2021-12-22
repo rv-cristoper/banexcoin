@@ -1,15 +1,16 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
-import Dashboard from '../app/pages/Dashboard'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Loggin from '../app/pages/Loggin'
+import MainRouter from './MainRouter'
+
 
 const AppRouter = (): JSX.Element => {
+
     return (
         <Router>
             <Routes>
                 <Route path="" element={<Loggin />} />
-                <Route path="a" element={<Dashboard />} />
-                <Route path='*' element={<Navigate to="" />} />
+                <Route path="/*" element={<MainRouter />} />
             </Routes>
         </Router>
     )
