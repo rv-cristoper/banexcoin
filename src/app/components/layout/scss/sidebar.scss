@@ -5,13 +5,24 @@
     font-size: 18px;
     font-family: "Poppins";
     font-weight: 600;
+    .closeSide {
+        display: none;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-weight: 700;
+        font-size: 30px;
+        color: #fff;
+        height: max-content;
+        cursor: pointer;
+    }
     li {
         list-style: none;
         height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
-        a{
+        a {
             width: 100%;
             height: 100%;
             display: flex;
@@ -21,5 +32,23 @@
     }
     .active {
         background-color: #fff;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        position: absolute;
+        width: 100vw;
+        top: 0;
+        bottom: 0;
+        padding-top: 70px;
+        left: -100vw;
+        transition: left 0.3s;
+        &.active{
+            left: 0;
+        }
+        .closeSide {
+            display: block;
+        }
     }
 }

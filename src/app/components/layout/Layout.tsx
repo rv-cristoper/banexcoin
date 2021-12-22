@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from './Header'
 import Sidebar from './Sidebar'
 
@@ -9,11 +9,13 @@ type Props = {
 }
 
 const Layout = ({ children }: Props): JSX.Element => {
+
+    const [openMenu, setOpenMenu] = useState<boolean>(false)
     return (
         <div className='layout'>
-            <Header />
+            <Header setOpenMenu={setOpenMenu} />
             <div className='constsidebar'>
-                <Sidebar />
+                <Sidebar setOpenMenu={setOpenMenu} openMenu={openMenu}/>
                 {children}
             </div>
 
