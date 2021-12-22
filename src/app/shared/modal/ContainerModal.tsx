@@ -10,9 +10,12 @@ type Props = {
     title: string
 }
 
+// Creación de un partal para la inserción de formularios dentro de un modal general.
+
 const ContainerModal: React.FC<Props> = ({ showModal, setShowModal, title, children }) => {
 
     useEffect(() => {
+        // Desabilitar el scroll vertical al momento de abrir un modal
         let bodyStyle = document.body
         showModal ? bodyStyle.style.overflowY = "hidden" : bodyStyle.removeAttribute('style')
     }, [showModal])

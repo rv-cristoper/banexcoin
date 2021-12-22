@@ -41,6 +41,7 @@ const AddUser = ({ setAddUserModal, addUSer }: Props): JSX.Element => {
         return day + ' de ' + month[Number(nMonth)];
     }
 
+    // Validación al momento de insertar caracteres en el formulario, si se envía un campo true, solo permitira el ingreso de caracteres numéricos.
     const onChangeInputs = (e: ChangeEvent, number?: boolean) => {
         const { name, value } = e.target
         if (number) {
@@ -64,7 +65,7 @@ const AddUser = ({ setAddUserModal, addUSer }: Props): JSX.Element => {
         e.preventDefault()
         const newData = {
             ...data,
-            id: Math.random().toString(36).substr(2, 9),
+            id: Math.random().toString(36).substr(2, 9), // Generción de Id aleatorio
             created: getDate(),
             birthdate: getBirthdate(data.birthdate)
         }
@@ -86,7 +87,7 @@ const AddUser = ({ setAddUserModal, addUSer }: Props): JSX.Element => {
                 </label>
                 <label>
                     <p>Teléfono:</p>
-                    <input name="phone" type="text" value={phone} onChange={(e: ChangeEvent) => onChangeInputs(e, true)} required autoComplete="off" />
+                    <input name="phone" type="text" value={phone} onChange={(e: ChangeEvent) => onChangeInputs(e, true)} required autoComplete="off" maxLength={9}/>
                 </label>
                 <label>
                     <p>Código postal:</p>

@@ -44,7 +44,7 @@ const UserItem = ({ user }: Props): JSX.Element => {
             <div>
                 <button onClick={() => setMoreInf(true)}>Más Información</button>
             </div>
-            <ContainerModal showModal={moreInf} setShowModal={setMoreInf} title="Información de Usuario">
+            <ContainerModal showModal={moreInf} setShowModal={setMoreInf} title="Información del Cliente">
                 <InfoUser user={user}/>
             </ContainerModal>
         </div>

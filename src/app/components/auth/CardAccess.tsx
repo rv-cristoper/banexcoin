@@ -16,6 +16,7 @@ const CardAccess = (): JSX.Element => {
         username: '',
         password: ''
     })
+
     const [showPassword, setShowPassword] = useState<boolean>(false)
     const [loading, setLoading] = useState<boolean>(false)
 
@@ -27,6 +28,7 @@ const CardAccess = (): JSX.Element => {
         })
     }
 
+    // Validación de credenciales de acceso
     const onSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setLoading(true)

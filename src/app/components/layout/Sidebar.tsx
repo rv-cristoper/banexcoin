@@ -11,8 +11,8 @@ const Sidebar = ({ setOpenMenu, openMenu }: Props): JSX.Element => {
     return (
         <ul className={`sidebar ${openMenu ? 'active' : ''}`} >
             <li className='closeSide' onClick={() => setOpenMenu(false)}>X</li>
-            <li><NavLink to='/users' onClick={() => setOpenMenu(false)}>Usuarios</NavLink></li>
-            <li><NavLink to='/clients' onClick={() => setOpenMenu(false)}>Clientes</NavLink></li>
+            <li><NavLink to='/users' onClick={() => setOpenMenu(false)}>Clientes</NavLink></li>
+            <li><NavLink to='/clients' onClick={() => setOpenMenu(false)}>Usuarios</NavLink></li>
         </ul >
     )
 }

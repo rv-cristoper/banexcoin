@@ -36,7 +36,7 @@ const UserPage = (): JSX.Element => {
 
     return (
         <div className='userPage'>
-            <h1>Lista de Usuarios</h1>
+            <h1>Lista de Clientes</h1>
             <button onClick={() => setAddUserModal(true)}>Agregar +</button>
             <div className='containerUsers'>
                 {
