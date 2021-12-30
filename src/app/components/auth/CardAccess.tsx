@@ -62,7 +62,7 @@ const CardAccess = ({ viewLogin, changeOption }: IProps): JSX.Element => {
             </div>
             <div className='contbtnAccs'>
                 <button>
-                    <img src="https://cdn.icon-icons.com/icons2/836/PNG/512/Google_icon-icons.com_66793.png" alt="imgGoogle" width='18px' />
+                    <img src="https://res.cloudinary.com/cristoper/image/upload/v1640852405/banecoin/Google_icon-icons.com_66793_ue7fph.png" alt="imgGoogle" width='18px' />
                     <span>Iniciar sesión con Google</span>
                     <span>Google</span>
                 </button>
