@@ -1,0 +1,86 @@
+.main_LoaderPage
+    background: #fff
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100%
+    height: 100%
+    .containerImgMoment
+        width: 100%
+        max-width: calc( 500px - 1rem)
+        position: relative
+        padding: 0 0.5rem
+        .cntSkele
+            position: absolute
+            top: 34px
+            left: 27px
+            right: 140px
+            bottom: 88px
+            padding: 0.8rem
+            display: flex
+            flex-direction: column
+            row-gap: 10px
+            .board
+                display: flex
+                column-gap: 15px
+                width: 100%
+                div
+                    &:nth-child(2)
+                        width: calc(100% - 105px )
+                        display: flex
+                        flex-direction: column
+                        row-gap: 8px
+        .svgMoment
+            width: 100%
+            height: 100%
+        img 
+            display: none
+        .containerText
+            position: absolute
+            bottom: 0
+            left: 0
+            right: 135px
+            height: 67px
+            display: flex
+            align-items: center
+            .text
+                font-size: 20px
+                &.animate
+                    animation-duration: 7s
+                    animation-name: showText
+                    animation-iteration-count: infinite
+
+@keyframes showText
+    from
+        opacity: 0
+    25%
+        opacity: 1
+    85%
+        opacity: 1
+    to
+        opacity: 0
+
+#Vector_3, #Vector_10, #Vector_11, #Vector_12
+    fill: #ff8e0a
+
+@media screen and (max-width: 530px)
+    .main_LoaderPage
+        .containerImgMoment
+            position: absolute
+            left: 50%
+            top: 50%
+            transform: translate(-50%, -50%)
+            right: auto
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            .cntSkele, .svgMoment
+                display: none
+            img
+                display: block
+            .containerText
+                position: relative
+                width: calc(100% - 40px)
+                padding: 20px
+                text-align: center

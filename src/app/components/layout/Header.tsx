@@ -13,9 +13,9 @@ const Header = ({ setOpenMenu }: Props): JSX.Element => {
             <div className='containerMain'>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Hamburger_icon_white.svg" className='menHumbr' alt="icon" width='30px' onClick={() => setOpenMenu(true)} />
                 <div className='logo'>
-                    <img src="https://www.banexcoin.com/local/logos/logo-banexcoin-white-middleorange.svg" alt="imgBanex" />
+                    <img src="https://res.cloudinary.com/cristoper/image/upload/v1640810666/banecoin/logo-banexcoin_rijfqg.svg" alt="imgBanex" />
                 </div>
-                <div className='navigate' onClick={()=>navigate('/')}>
+                <div className='navigate' onClick={() => navigate('/')}>
                     Cerrar sesión
                 </div>
             </div>

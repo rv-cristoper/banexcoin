@@ -1,14 +1,19 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Notification, { type } from '../../shared/toast/Toast'
-import './scss/cardAccess.scss'
+import './scss/cardAuth.scss'
 
 interface IUser {
     username: string,
     password: string
 }
 
-const CardAccess = (): JSX.Element => {
+interface IProps {
+    viewLogin: boolean
+    changeOption: (value: string) => void
+}
+
+const CardAccess = ({ viewLogin, changeOption }: IProps): JSX.Element => {
 
     const navigate = useNavigate();
 
@@ -16,6 +21,8 @@ const CardAccess = (): JSX.Element => {
         username: '',
         password: ''
     })
+
+    const [msmError, setMsmError] = useState<boolean>(false)
 
     const [showPassword, setShowPassword] = useState<boolean>(false)
     const [loading, setLoading] = useState<boolean>(false)
@@ -32,51 +39,64 @@ const CardAccess = (): JSX.Element => {
     const onSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setLoading(true)
-        if (user.username === 'admin' && user.password === '123456') {
-            Notification(type.success, "Logueado correctamente!")
-            setLoading(false)
-            navigate('/users')
-        }
-        else {
-            Notification(type.danger, "Usuario o contraseña incorrecto!")
-            setLoading(false)
-        }
+        setTimeout(() => {
+            if (user.username === 'admin' && user.password === '123456') {
+                Notification(type.success, "Logueado correctamente!")
+                setLoading(false)
+                navigate('/users')
+            }
+            else {
+                setMsmError(true)
+                setLoading(false)
+            }
+        }, 1200);
     }
 
     const { username, password }: IUser = user;
 
     return (
-        <div className="containerAccess">
-            <div className='logo'>
-                <img src="https://www.banexcoin.com/local/logos/logo-banexcoin-white-middleorange.svg" alt="logBanex" />
+        <div className={`containerAccess ${!viewLogin ? 'other' : ''}`} >
+            <div className='titLoggin'>
+                <h1>Iniciar sesión</h1>
+                <p>¿No tiene una cuenta? <span>Regístrese</span></p>
             </div>
+            <div className='contbtnAccs'>
+                <button>
+                    <img src="https://cdn.icon-icons.com/icons2/836/PNG/512/Google_icon-icons.com_66793.png" alt="imgGoogle" width='18px' />
+                    <span>Iniciar sesión con Google</span>
+                    <span>Google</span>
+                </button>
+                <button>
+                    <i className="fab fa-facebook" />
+                    <span>Iniciar sesión con Facebook</span>
+                    <span>Facebook</span>
+                </button>
+            </div>
+            <hr />
             <div className="contAccess">
-                <div className="titleAccess">
-                    <div>Iniciar sesión como:</div>
-                    <div>Administrador</div>
-                </div>
-                <div className="infoAccess">
-                    <div className="infTit">Para ingresar a la plataforma debe poner sus credenciales de acceso.</div>
-                </div>
                 <form onSubmit={onSubmit}>
                     <div className="formBody" >
                         <label htmlFor="accessUser">
+                            Usuario
+                            <i className="fas fa-user" />
                             <input
                                 id="accessUser"
-                                type="string"
+                                type="text"
                                 name='username'
-                                placeholder="Ingrese su usuario"
+                                placeholder="Ingrese usuario"
                                 value={username}
                                 onChange={onChange}
                                 disabled={loading}
                                 required />
                         </label>
                         <label htmlFor="accessPass">
+                            Contraseña
+                            <i className="fas fa-lock" />
                             <input
                                 id="accessPass"
                                 className="inpPass"
                                 type={`${showPassword ? 'text' : 'password'}`}
-                                placeholder="Contraseña"
+                                placeholder="Ingrese contraseña"
                                 name='password'
                                 value={password}
                                 onChange={onChange}
@@ -86,16 +106,21 @@ const CardAccess = (): JSX.Element => {
                             <i className={`far fa-eye${showPassword ? '-slash' : ''} ${loading ? 'disabled' : ''} `} onClick={() => setShowPassword(!showPassword)} />
                         </label>
                     </div>
+                    {
+                        msmError &&
+                        <p>Usuario o contraseña incorrecto.</p>
+                    }
                     <div className="formFooter">
                         <button type='submit' disabled={loading}>
                             {
-                                loading ? 'CARGANDO...' : 'INICIAR SESIÓN'
+                                loading ? 'ACCEDIENDO...' : 'INICIAR SESIÓN'
                             }
                         </button>
+                        <span onClick={() => changeOption('restore')}>¿Olvidaste tu contraseña?</span>
                     </div>
                 </form>
             </div>
-        </div>
+        </div >
     )
 }
 

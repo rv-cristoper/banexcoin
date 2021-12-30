@@ -1,0 +1,290 @@
+.containerAccess {
+    display: grid;
+    row-gap: 30px;
+    border-radius: 16px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: left 0.5s;
+    &.other {
+        left: -25vw;
+    }
+    &.restore {
+        left: 85vw;
+    }
+    .returnAcces {
+        position: absolute;
+        left: 32px;
+        display: flex;
+        column-gap: 10px;
+        justify-content: center;
+        align-items: center;
+        color: #ff4248;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+    .titLoggin {
+        h1 {
+            font-family: "Poppins";
+            margin: 0;
+        }
+        p {
+            font-size: 13px;
+            color: #a5a5a5;
+            letter-spacing: 0.25px;
+            span {
+                cursor: pointer;
+                color: #ff8e0a;
+                font-weight: 500;
+            }
+        }
+    }
+    .contbtnAccs {
+        display: flex;
+        gap: 15px;
+        button {
+            cursor: pointer;
+            background-color: inherit;
+            border: 1.5px solid #dadce0;
+            padding: 10px 20px;
+            border-radius: 12px;
+            display: flex;
+            column-gap: 10px;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            font-size: 13px;
+            letter-spacing: 0.25px;
+            font-weight: 500;
+            span {
+                &:last-child {
+                    display: none;
+                }
+            }
+            &:last-child {
+                color: #fff;
+                background-color: #166fe5;
+                border: 1.5px solid #166fe5;
+                i {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+    hr {
+        margin: 10px;
+        overflow: visible;
+        border: none;
+        border-top: 1px solid #e0e0e0;
+        color: #6e6d7a;
+        text-align: center;
+        &::after {
+            content: "O";
+            display: inline-block;
+            position: relative;
+            top: -11px;
+            padding: 0 16px;
+            background: #fff;
+            font-size: 13px;
+        }
+    }
+    .contAccess {
+        form {
+            display: grid;
+            grid-template-rows: auto max-content;
+            grid-row-gap: 18px;
+            .formBody {
+                display: grid;
+                grid-auto-flow: row;
+                grid-auto-rows: max-content;
+                grid-row-gap: 18px;
+                letter-spacing: 1.5px;
+                font-weight: 700;
+                font-size: 11px;
+                label {
+                    position: relative;
+                    font-family: "Poppins";
+                    font-size: 13px;
+                    font-weight: 600;
+                    input,
+                    textarea {
+                        margin-top: 10px;
+                        padding: 0.8rem;
+                        padding-left: 50px;
+                        border-radius: 10px;
+                        border: none;
+                        letter-spacing: 1.25px;
+                        background-color: #fff;
+                        outline: none;
+                        width: 100%;
+                        box-sizing: border-box;
+                        font-family: "Roboto";
+                        font-size: 13px;
+                        border: 1.5px solid #dadce0;
+                        &::-ms-reveal {
+                            display: none;
+                        }
+                    }
+                    textarea {
+                        padding: 0.8rem;
+                        height: 100px;
+                        resize: none;
+                    }
+                    i {
+                        color: #888787;
+                        position: absolute;
+                        font-size: 18px;
+                        left: 20px;
+                        bottom: 12px;
+                    }
+                    &:last-child {
+                        input {
+                            padding-right: 40px;
+                        }
+                        i {
+                            &:last-child {
+                                right: 10px;
+                                left: auto;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+            p {
+                color: #ff4248;
+                font-size: 13px;
+                font-family: "Poppins";
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                &.sucess {
+                    color: #47c65d;
+                }
+            }
+            .formFooter {
+                display: grid;
+                grid-row-gap: 16px;
+                button {
+                    padding: 1rem;
+                    border-radius: 45px;
+                    border: none;
+                    width: 100%;
+                    background-color: #ff8e0a;
+                    color: #fff;
+                    letter-spacing: 1.25px;
+                    font-family: system-ui;
+                    font-weight: 700;
+                    outline: none;
+                    cursor: pointer;
+                    font-size: 13px;
+                }
+                span {
+                    text-align: right;
+                    font-size: 13px;
+                    letter-spacing: 0.25px;
+                    cursor: pointer;
+                    color: #ff8e0a;
+                    font-weight: 500;
+                }
+            }
+            .indSocial {
+                p {
+                    color: #1f1f37;
+                }
+                div {
+                    display: flex;
+                    justify-content: center;
+                    column-gap: 30px;
+                    padding-top: 20px;
+                    img {
+                        width: 30px;
+                        cursor: pointer;
+                        filter: grayscale(1);
+                        opacity: 0.5;
+                        &:hover {
+                            filter: grayscale(0);
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 890px) {
+    .containerAccess {
+        &.restore {
+            left: 130vw;
+        }
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .containerAccess {
+        &.other {
+            left: -50vw;
+        }
+        &.restore {
+            left: 150vw;
+        }
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .containerAccess {
+        row-gap: 15px;
+        .titLoggin {
+            h1 {
+                font-size: 22px;
+            }
+        }
+        .contbtnAccs {
+            button {
+                height: 35px;
+                span {
+                    display: none;
+                    &:last-child {
+                        display: block;
+                    }
+                }
+            }
+        }
+        .contAccess {
+            form {
+                p {
+                    margin: 0;
+                }
+                .formBody {
+                    label {
+                        input,
+                        textarea {
+                            margin-top: 5px;
+                            padding: 0.6rem;
+                            padding-left: 50px;
+                        }
+                        textarea {
+                            padding: 0.6rem;
+                        }
+                        i {
+                            bottom: 10px;
+                        }
+                    }
+                }
+                .formFooter {
+                    button {
+                        height: 35px;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+}
