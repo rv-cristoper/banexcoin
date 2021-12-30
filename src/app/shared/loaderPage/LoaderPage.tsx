@@ -80,7 +80,7 @@ const LoaderPage = (): JSX.Element => {
                 <div className="main_LoaderPage" >
                     <div className="containerImgMoment">
                         <ImageFile />
-                        {/* <img src="https://res.cloudinary.com/cristoper/image/upload/v1640849466/banecoin/undraw_fast_loading_re_8oi3_litavo.svg" alt="imgLoadingMovile" width='250px'/> */}
+                        <img src="https://res.cloudinary.com/cristoper/image/upload/v1640849466/banecoin/undraw_fast_loading_re_8oi3_litavo.svg" alt="imgLoadingMovile" width='250px'/>
                         <div className="containerText">
                             <p className={`text ${phrases.length ? 'animate' : ''}`}>{text?.text} <b>{text?.autor}</b>.
                             </p>
